@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- Incluye el menú -->
+<div th:replace="fragments/navbar :: menu"></div>
+
+
+<h1>Lista de Clinicas</h1>
+
+<a th:href="@{/clinicas/nuevo}">Crear clinica</a>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Direccion</th>
+    <th>Telefono</th>
+    <th>Acciones</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="c : ${clinicList}">
+    <td th:text="${c.id}"></td>
+    <td th:text="${c.name}"></td>
+    <td th:text="${c.address}"></td>
+    <td th:text="${c.getPhoneNumber()}"></td>
+    <td>
+      <a th:href="@{/clinicas/editar(id=${c.id})}">Editar clinica</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

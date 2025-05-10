@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Clínica</title>
+</head>
+<body>
+
+<!-- Incluye el menú -->
+<div th:replace="fragments/navbar :: menu"></div>
+
+<h3>Formulario de Clínica</h3>
+
+<form th:action="@{/clinicas/guardar}" th:object="${clinica}" method="post">
+  <!-- ID oculto -->
+  <input type="hidden" th:field="*{id}" />
+
+  <!-- Nombre de la Clínica -->
+  <div class="mb-4">
+    <label class="form-label">Nombre de la Clínica</label>
+    <input type="text" class="form-control"
+           th:field="*{name}"
+           placeholder="Ej. Clínica San Borja"
+           th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+  </div>
+
+  <!-- Dirección -->
+  <div class="mb-4">
+    <label class="form-label">Dirección</label>
+    <input type="text" class="form-control"
+           th:field="*{address}"
+           placeholder="Ej. Av. Javier Prado Este 456"
+           th:classappend="${#fields.hasErrors('address')} ? 'is-invalid' : ''">
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
+  </div>
+
+  <!-- Teléfono -->
+  <div class="mb-4">
+    <label class="form-label">Teléfono</label>
+    <input type="text" class="form-control"
+           th:field="*{phoneNumber}"
+           th:classappend="${#fields.hasErrors('phoneNumber')} ? 'is-invalid' : ''">
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
+  </div>
+
+  <!-- Botones -->
+  <button type="submit" class="btn btn-primary">Guardar clínica</button>
+  <a th:href="@{/clinicas}" class="btn btn-secondary ms-2">Cancelar</a>
+</form>
+
+</body>
+</html>
