@@ -23,7 +23,15 @@ public class clinicsController {
     private hospitalRepository hospitalRepository;*/
 
 
-    @GetMapping("doctores")
+    @GetMapping("")
+    public String inicio(Model model) {
+        //List<Doctor> doctores = doctorRepository.findAll();
+
+        //model.addAttribute("listaDoctores", doctores);
+        return "inicio";
+    }
+
+    @GetMapping("clinicas")
     public String listarDoctores(Model model) {
         //List<Doctor> doctores = doctorRepository.findAll();
 
