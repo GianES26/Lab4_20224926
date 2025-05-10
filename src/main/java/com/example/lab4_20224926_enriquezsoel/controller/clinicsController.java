@@ -31,21 +31,6 @@ public class clinicsController {
         return "inicio";
     }
 
-    @GetMapping("clinicas")
-    public String listarDoctores(Model model) {
-        //List<Doctor> doctores = doctorRepository.findAll();
-
-        //model.addAttribute("listaDoctores", doctores);
-        return "doctor/doctorList";
-    }
-
-    @GetMapping("doctores/citas")
-    public String listarCitas(@RequestParam(name = "id") Integer idDoctor, Model model) {
-        //List<Paciente> pacientesNoAtendidos = pacienteRepository.listarPacientesDesde2023PorDoctor(idDoctor);
-
-        //model.addAttribute("listaPacientesNoAtendidos", pacientesNoAtendidos);
-        return "doctor/pacienteList";
-    }
 
 
 
